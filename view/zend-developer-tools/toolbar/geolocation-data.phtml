@@ -1,0 +1,86 @@
+<?php
+$location = $collector->getLocation();
+?>
+<div class="zdt-toolbar-entry">
+    <div class="zdt-toolbar-preview" style="padding-top: 8px;">
+        <?= $collector->getIcon() ?>
+    </div>
+    <?php if($location) : ?>
+        <div class="zdt-toolbar-detail">
+            <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label">
+                    IP
+                </span>
+                <?php if($location->getIpAddress()) : ?>
+                    <span class="zdt-detail-value">
+                        <?= $location->getIpAddress() ?>
+                    </span>
+                <?php endif; ?>
+            </span>
+            <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label">
+                    Continent
+                </span>
+                <?php if($location->getContinentName()) : ?>
+                    <span class="zdt-detail-value">
+                        <?= $location->getContinentName() ?>
+                        (<?= $location->getContinentCode() ?>)
+                    </span>
+                <?php endif; ?>
+            </span>
+            <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label">
+                    Country
+                </span>
+                <?php if($location->getCountryName()) : ?>
+                    <span class="zdt-detail-value">
+                        <?= $location->getCountryName() ?>
+                        (<?= $location->getCountryCode() ?>)
+                        <img height="12px" src="<?= $location->getCountryFlag() ?>">
+                    </span>
+                <?php endif; ?>
+            </span>
+            <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label">
+                    Region
+                </span>
+                <?php if($location->getRegionName()) : ?>
+                    <span class="zdt-detail-value">
+                        <?= $location->getRegionName() ?>
+                        (<?= $location->getRegionCode() ?>)
+                    </span>
+                <?php endif; ?>
+            </span>
+            <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label">
+                    City
+                </span>
+                <?php if($location->getCity()) : ?>
+                    <span class="zdt-detail-value">
+                        <?= $location->getCity() ?>
+                    </span>
+                <?php endif; ?>
+            </span>
+            <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label">
+                    zip
+                </span>
+                <?php if($location->getZip()) : ?>
+                    <span class="zdt-detail-value">
+                        <?= $location->getZip() ?>
+                    </span>
+                <?php endif; ?>
+            </span>
+            <span class="zdt-toolbar-info">
+                <span class="zdt-detail-label">
+                    Position
+                </span>
+                <?php if($location->getLatitude() && $location->getLongitude()) : ?>
+                    <span class="zdt-detail-value">
+                        <?= $location->getLatitude() ?>, <?= $location->getLongitude() ?>
+                    </span>
+                <?php endif; ?>
+            </span>
+        </div>
+    <?php endif; ?>
+</div>
